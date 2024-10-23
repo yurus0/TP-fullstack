@@ -17,9 +17,12 @@ EXPOSE 80
 FROM openjdk:21-jdk-slim AS backend-build
 
 WORKDIR /app/backend
-COPY src/main/java/pom.xml ./
-COPY src/main/java/src ./src
-RUN ./mvnw clean package -DskipTests
+COPY ./pom.xml ./
+COPY src/main/java/ ./src
+COPY ./.mvn/ ./.mvn
+COPY mvnw ./
+RUN chmod +x mvnw  # Make sure mvnw is executable
+RUN ./mvnw clean package -DskipTests -e -X
 
 # Final image to run both frontend and backend
 FROM openjdk:21-jdk-slim
