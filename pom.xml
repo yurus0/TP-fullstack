@@ -103,6 +103,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- Micrometer Prometheus Registry -->
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -112,7 +117,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 
 				<configuration>
-					<mainClass>com.tp3.Application</mainClass>
+					<mainClass>com.tp3.application.Application</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
